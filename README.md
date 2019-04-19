@@ -3,9 +3,9 @@ This golang application accepts a list of images from a text file and creates a 
 
 ## Focus
 - Handling unlimited image URL's by reading each line and passing URL into a channel.
-- Increase CPU time by not copying the image data to local machine, image is store **in memory**
+- Increase CPU time by not copying the image data to local machine, image is store **in memory** and released when image processing is complete.
 - Save CSV data as soon as color information is fetched, writing a new line.
-- Application **does not** store unique data based on image URL, this example has 40 unique images out of 1,000. But I am thinking this file could be "billions" of URLs. I am considering all URL's to be unique and/or require processing.
+- Application **does not** store unique data based on image URL, `images.txt` has 40 unique images out of 1,000. But I am thinking this file could be "billions" of URLs. I am considering all URL's to be unique and/or require processing.
 
 ## Theory
 Based on 1 CPU the image processing should be the most expensive task. This application will process 4 (`queue` const) images as a queue. 

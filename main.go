@@ -6,7 +6,6 @@ import (
 	"io"
 	"log"
 	"net/http"
-	_ "net/http/pprof"
 	"os"
 	"sync"
 	"time"
@@ -39,9 +38,6 @@ func handleError(err error) {
 }
 
 func main() {
-	go func() {
-		log.Println(http.ListenAndServe("localhost:6060", nil))
-	}()
 	csvFile, err := os.Create(resultFilename)
 	if err != nil {
 		handleError(err)
